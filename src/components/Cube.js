@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import '../App.css';
 
 function Cube() {
-  const [rps, setRps] = useState(0.1);
+  const [speed, setSpeed] = useState(10);
   const cubeRef = useRef(null);
   const animationRef = useRef(null);
   const [rotation, setRotation] = useState({ x: 0, y: 0 });
@@ -10,8 +10,8 @@ function Cube() {
   useEffect(() => {
     const updateRotation = () => {
       setRotation(prev => ({
-        x: (prev.x + (rps * 360) / 60) % 360,
-        y: (prev.y + (rps * 360) / 60) % 360
+        x: (prev.x + 360 / (speed * 60)) % 360,
+        y: (prev.y + 360 / (speed * 60)) % 360
       }));
       animationRef.current = requestAnimationFrame(updateRotation);
     };
@@ -23,29 +23,28 @@ function Cube() {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [rps]);
+  }, [speed]);
 
   const increaseSpeed = () => {
-    setRps(prevRps => {
-      if (prevRps < 0.5) return prevRps + 0.1;
-      if (prevRps < 2) return prevRps + 0.25;
-      return prevRps + 0.5;
+    setSpeed(prevSpeed => {
+      if (prevSpeed <= 2) return prevSpeed - 0.2;
+      return prevSpeed - 2;
     });
   };
 
   const decreaseSpeed = () => {
-    setRps(prevRps => {
-      if (prevRps <= 0.1) return prevRps;
-      if (prevRps <= 0.5) return prevRps - 0.1;
-      if (prevRps <= 2) return prevRps - 0.25;
-      return prevRps - 0.5;
+    setSpeed(prevSpeed => {
+      if (prevSpeed < 2) return prevSpeed + 0.2;
+      return prevSpeed + 2;
     });
   };
+
+  const degreesPerSecond = Math.floor(360 / speed);
 
   return (
     <div className="App">
       <div className="speed-indicator">
-        Rotation Speed: {rps.toFixed(1)} rotations per second
+        Rotation Speed: {degreesPerSecond}° per second
       </div>
       <div className="cube-container">
         <div 

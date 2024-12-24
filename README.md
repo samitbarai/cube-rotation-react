@@ -22,7 +22,7 @@ A modern chat application built with React that demonstrates real-time messaging
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/react-chat-app.git
+   git clone https://github.com/samitbarai/react-chat-app.git
    ```
 
 2. Navigate to the project directory:
@@ -68,7 +68,7 @@ This project is licensed under the MIT License.
 
 ## 👥 Authors
 
-- Your Name - Initial work - [YourGithub](https://github.com/yourusername)
+- Your Name - Initial work - [samitbarai](https://github.com/samitbarai)
 
 ## 🙏 Acknowledgments
 
@@ -78,6 +78,6 @@ This project is licensed under the MIT License.
 
 ## 📧 Contact
 
-Your Name - [@yourtwitter](https://twitter.com/yourtwitter) - email@example.com
+Your Name - [@samit403](https://twitter.com/samit403) - email@example.com
 
 Project Link: [https://github.com/yourusername/react-chat-app](https://github.com/yourusername/react-chat-app)
